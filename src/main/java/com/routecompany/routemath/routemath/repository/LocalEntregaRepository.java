@@ -1,4 +1,7 @@
 package com.routecompany.routemath.routemath.repository;
 
-public interface LocalEntregaRepository {
+import com.routecompany.routemath.routemath.model.LocalEntrega;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface LocalEntregaRepository extends JpaRepository<LocalEntrega, Long> {
 }

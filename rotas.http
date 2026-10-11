@@ -1,0 +1,39 @@
+### Held-Karp (ótimo) - esperado: distanciaTotal 14.0, otima true
+POST http://localhost:8080/api/rotas/calcular
+Content-Type: application/json
+
+{
+  "matriz": [[0,4,7,3],[4,0,2,6],[7,2,0,5],[3,6,5,0]],
+  "deposito": 0,
+  "algoritmo": "HELD_KARP"
+}
+
+### Vizinho mais próximo (heurística) - otima false
+POST http://localhost:8080/api/rotas/calcular
+Content-Type: application/json
+
+{
+  "matriz": [[0,4,7,3],[4,0,2,6],[7,2,0,5],[3,6,5,0]],
+  "deposito": 0,
+  "algoritmo": "VIZINHO_MAIS_PROXIMO"
+}
+
+### Erro esperado (400): matriz não quadrada
+POST http://localhost:8080/api/rotas/calcular
+Content-Type: application/json
+
+{
+  "matriz": [[0,4,7],[4,0,2]],
+  "deposito": 0,
+  "algoritmo": "HELD_KARP"
+}
+
+### Erro esperado (400): depósito fora da matriz
+POST http://localhost:8080/api/rotas/calcular
+Content-Type: application/json
+
+{
+  "matriz": [[0,4],[4,0]],
+  "deposito": 9,
+  "algoritmo": "HELD_KARP"
+}
