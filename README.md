@@ -95,7 +95,6 @@ spring.datasource.password=SUA_SENHA
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-> Não versione senhas reais no repositório.
 
 ## Testes
 
