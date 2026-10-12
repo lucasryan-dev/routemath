@@ -18,12 +18,12 @@ Plano de desenvolvimento do projeto. Marque os itens conforme forem concluídos.
 
 Objetivo: demonstrar, com números, a diferença entre a heurística e a solução ótima.
 
-- [ ] Endpoint `POST /api/rotas/comparar` rodando Held-Karp e Vizinho Mais Próximo na mesma matriz
-- [ ] Resposta com as duas rotas, a diferença em km e o percentual:
+- [x] Endpoint `POST /api/rotas/comparar` rodando Held-Karp e Vizinho Mais Próximo na mesma matriz
+- [x] Resposta com as duas rotas, a diferença em km e o percentual:
   `(D_gulosa − D_ótima) / D_ótima × 100`
-- [ ] DTO de resposta da comparação
-- [ ] Testes do endpoint de comparação
-- [ ] Endpoint GET de exemplo (`/api/rotas/exemplo`) para demonstração no navegador (opcional)
+- [x] DTO de resposta da comparação
+- [x] Testes do endpoint de comparação
+- [x] Endpoint GET de exemplo (`/api/rotas/exemplo`) para demonstração no navegador (opcional)
 
 ## Fase 2 — Persistência e histórico
 
