@@ -1,0 +1,33 @@
+### Comparação: Held-Karp x Vizinho Mais Próximo (6 locais)
+### esperado: ótima 42.0, gulosa 48.0, diferencaKm 6.0, diferencaPercentual ~14.29
+POST http://localhost:8080/api/rotas/comparar
+Content-Type: application/json
+
+{
+  "matriz": [
+    [0, 12, 10, 19, 8, 15],
+    [12, 0, 3, 7, 2, 9],
+    [10, 3, 0, 6, 20, 5],
+    [19, 7, 6, 0, 4, 11],
+    [8, 2, 20, 4, 0, 14],
+    [15, 9, 5, 11, 14, 0]
+  ],
+  "deposito": 0
+}
+
+### Comparação com a matriz de 4 locais - esperado: diferença 0
+POST http://localhost:8080/api/rotas/comparar
+Content-Type: application/json
+
+{
+  "matriz": [[0,4,7,3],[4,0,2,6],[7,2,0,5],[3,6,5,0]],
+  "deposito": 0
+}
+
+### Erro esperado (400): sem depósito
+POST http://localhost:8080/api/rotas/comparar
+Content-Type: application/json
+
+{
+  "matriz": [[0,4],[4,0]]
+}
