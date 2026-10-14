@@ -1,0 +1,34 @@
+### 1) Calcular (salva no histórico)
+POST http://localhost:8080/api/rotas/calcular
+Content-Type: application/json
+
+{
+  "matriz": [[0,4,7,3],[4,0,2,6],[7,2,0,5],[3,6,5,0]],
+  "deposito": 0,
+  "algoritmo": "HELD_KARP"
+}
+
+### 2) Comparar (salva os dois resultados)
+POST http://localhost:8080/api/rotas/comparar
+Content-Type: application/json
+
+{
+  "matriz": [
+    [0, 12, 10, 19, 8, 15],
+    [12, 0, 3, 7, 2, 9],
+    [10, 3, 0, 6, 20, 5],
+    [19, 7, 6, 0, 4, 11],
+    [8, 2, 20, 4, 0, 14],
+    [15, 9, 5, 11, 14, 0]
+  ],
+  "deposito": 0
+}
+
+### 3) Listar o histórico
+GET http://localhost:8080/api/rotas
+
+### 4) Buscar um cálculo pelo id
+GET http://localhost:8080/api/rotas/1
+
+### 5) Erro esperado (404): id que não existe
+GET http://localhost:8080/api/rotas/9999

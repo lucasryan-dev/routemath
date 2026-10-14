@@ -2,18 +2,16 @@ package com.routecompany.routemath.routemath.service;
 
 import com.routecompany.routemath.routemath.dto.ComparacaoRotaResponse;
 import com.routecompany.routemath.routemath.dto.CompararRotaRequest;
+import com.routecompany.routemath.routemath.repository.RotaRepository;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.testng.Assert.assertThrows;
-import static org.testng.AssertJUnit.*;
-import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertFalse;
-import static org.testng.AssertJUnit.assertTrue;
+import static org.mockito.Mockito.mock;
 
 class RotaServiceTest {
 
-    private final RotaService service = new RotaService();
+    // repositório simulado: o teste não precisa de banco de dados
+    private final RotaService service = new RotaService(mock(RotaRepository.class));
 
     @Test
     void deveCompararAlgoritmosNaMatrizDeSeisLocais() {
