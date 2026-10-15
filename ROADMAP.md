@@ -27,12 +27,12 @@ Objetivo: demonstrar, com números, a diferença entre a heurística e a soluç�
 
 ## Fase 2 — Persistência e histórico
 
-- [ ] Criar `RotaRepository`
-- [ ] Salvar cada cálculo na tabela `rota` (algoritmo, sequência, distância, tempo, data)
-- [ ] `GET /api/rotas` para listar o histórico
-- [ ] `GET /api/rotas/{id}` para consultar um cálculo salvo
-- [ ] Trocar o H2 pelo **MySQL** e configurar o `application.properties`
-- [ ] Não versionar senhas (usar variáveis de ambiente ou arquivo no `.gitignore`)
+- [x] Criar `RotaRepository`
+- [x] Salvar cada cálculo na tabela `rota` (algoritmo, sequência, distância, tempo, data)
+- [x] `GET /api/rotas` para listar o histórico
+- [x] `GET /api/rotas/{id}` para consultar um cálculo salvo
+- [x] Trocar o H2 pelo **MySQL** e configurar o `application.properties`
+- [x] Não versionar senhas (usar variáveis de ambiente ou arquivo no `.gitignore`)
 
 ## Fase 3 — Cadastro de locais e distâncias
 
