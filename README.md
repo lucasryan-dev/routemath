@@ -112,10 +112,10 @@ Os testes automatizados validam:
 - [x] Vizinho mais próximo
 - [x] Held-Karp
 - [x] Testes unitários dos algoritmos
-- [ ] API REST (`POST /api/rotas/calcular`)
-- [ ] Persistência dos locais e resultados (MySQL)
-- [ ] Interface para cadastro e visualização
-- [ ] Experimentos de desempenho e qualidade
+- [x] API REST (`POST /api/rotas/calcular`)
+- [x] Persistência dos locais e resultados (MySQL)
+- [x] Interface para cadastro e visualização
+- [x] Experimentos de desempenho e qualidade
 
 ## API planejada
 
