@@ -1,0 +1,105 @@
+### 1) Cadastrar o depósito
+POST http://localhost:8080/api/locais
+Content-Type: application/json
+
+{ "nome": "Depósito Central", "tipo": "DEPOSITO" }
+
+### 2) Cadastrar clientes
+POST http://localhost:8080/api/locais
+Content-Type: application/json
+
+{ "nome": "Cliente A", "tipo": "CLIENTE" }
+
+###
+POST http://localhost:8080/api/locais
+Content-Type: application/json
+
+{ "nome": "Cliente B", "tipo": "CLIENTE" }
+
+###
+POST http://localhost:8080/api/locais
+Content-Type: application/json
+
+{ "nome": "Cliente C", "tipo": "CLIENTE" }
+
+### 3) Listar os locais (confira os ids: o exemplo abaixo supõe 1=Depósito, 2=A, 3=B, 4=C)
+GET http://localhost:8080/api/locais
+
+### 4) Cadastrar as distâncias (cada chamada grava os dois sentidos)
+POST http://localhost:8080/api/distancias
+Content-Type: application/json
+
+{ "origemId": 1, "destinoId": 2, "distanciaKm": 4 }
+
+###
+POST http://localhost:8080/api/distancias
+Content-Type: application/json
+
+{ "origemId": 1, "destinoId": 3, "distanciaKm": 7 }
+
+###
+POST http://localhost:8080/api/distancias
+Content-Type: application/json
+
+{ "origemId": 1, "destinoId": 4, "distanciaKm": 3 }
+
+###
+POST http://localhost:8080/api/distancias
+Content-Type: application/json
+
+{ "origemId": 2, "destinoId": 3, "distanciaKm": 2 }
+
+###
+POST http://localhost:8080/api/distancias
+Content-Type: application/json
+
+{ "origemId": 2, "destinoId": 4, "distanciaKm": 6 }
+
+###
+POST http://localhost:8080/api/distancias
+Content-Type: application/json
+
+{ "origemId": 3, "destinoId": 4, "distanciaKm": 5 }
+
+### 5) Listar as distâncias
+GET http://localhost:8080/api/distancias
+
+### 6) Calcular a rota pelos locais - esperado: 14.0 km, otima true
+POST http://localhost:8080/api/rotas/calcular-por-locais
+Content-Type: application/json
+
+{
+  "depositoId": 1,
+  "clientesIds": [2, 3, 4],
+  "algoritmo": "HELD_KARP"
+}
+
+### 7) Com o vizinho mais próximo
+POST http://localhost:8080/api/rotas/calcular-por-locais
+Content-Type: application/json
+
+{
+  "depositoId": 1,
+  "clientesIds": [2, 3, 4],
+  "algoritmo": "VIZINHO_MAIS_PROXIMO"
+}
+
+### Erro esperado (404): local que não existe (id 99)
+POST http://localhost:8080/api/rotas/calcular-por-locais
+Content-Type: application/json
+
+{
+  "depositoId": 1,
+  "clientesIds": [2, 3, 4, 99],
+  "algoritmo": "HELD_KARP"
+}
+
+### Erro esperado (400): depósito que é cliente
+POST http://localhost:8080/api/rotas/calcular-por-locais
+Content-Type: application/json
+
+{
+  "depositoId": 2,
+  "clientesIds": [3, 4],
+  "algoritmo": "HELD_KARP"
+}
